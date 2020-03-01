@@ -223,7 +223,7 @@ function calculateCarbon() {
         points += 6;
     } else if (car == "least") {
         points += 4;
-    } else {
+    } else if (car == "default") {
         points -=300
     }
     var selectTag = document.getElementById('public');
@@ -238,7 +238,7 @@ function calculateCarbon() {
         points += 4;
     } else if (public == "little") {
         points += 2;
-    } else {
+    } else if (public == "default") {
         points -=300
     }
     
@@ -256,4 +256,3 @@ function calculateCarbon() {
 
 </body>
 </html>
-
