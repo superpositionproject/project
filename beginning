@@ -1,16 +1,259 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <style>
-    //CSS here
-    </style>
-  </head>
-  <body>
-    <script>
-    //javascript here
-    </script>
-  </body>
+<body>
+
+<h2>Global Warming</h2>
+
+<p>With all the talk about global warming in the news, this issue may seem like something to big to be tackled. However, every little action can make a difference to solve this problem. Read below to see how you can help!</p>
+
+<h3>Carbon Footprint Calculator</h3>
+
+<p>Your carbon footprint is the total amount of greenhouse gases that you generate by your actions. Answer the questions below to see your effect on this issue.</p>
+
+<label for="people">How many people do you live with?</label>
+<select id="people">
+    <option value="default">Choose your answer</option>
+    <option value="0">I live alone</option>
+    <option value="1">1 person</option>
+    <option value="2">2 people</option>
+    <option value="3">3 people</option>
+    <option value="4">4 people</option>
+    <option value="5">5 people</option>
+    <option value="6">more than 5 people</option>
+</select>
+<p> </p>
+<label for="home">Where do you live?</label>
+<select id="home">
+    <option value="default">Choose your answer</option>
+    <option value="large">In a large house</option>
+    <option value="medium">In a medium-sized house</option>
+    <option value="small">In a small house</option>
+    <option value="apartment">In an apartment</option>
+</select>
+<p> </p>
+<label for="meat">How often do you eat domestic meat?</label>
+<select id="meat">
+    <option value="default">Choose your answer</option>
+    <option value="daily">Daily</option>
+    <option value="few">A few times a week</option>
+    <option value="veggie">I am vegetarian</option>
+    <option value="vegan">I am vegan or only eat wild meat</option>
+</select>
+<p> </p>
+<label for="water">How often do you run your dishwasher and/or washing machine per week?</label>
+<select id="water">
+    <option value="default">Choose your answer</option>
+    <option value="most">more than 9 times</option>
+    <option value="more">4-9 times</option>
+    <option value="less">1-3 times</option>
+    <option value="none">I don't have a dishwasher and/or washing machine</option>
+</select>
+<p> </p>
+<label for="purchase">How many new pieces of furniture, electronics, or other household gadgets do you buy per year?</label>
+<select id="purchase">
+    <option value="default">Choose your answer</option>
+    <option value="most">more than 7</option>
+    <option value="more">5-7</option>
+    <option value="less">3-5</option>
+    <option value="least">less than 3</option>
+    <option value="none">almost nothing, or only second-hand items</option>
+</select>
+<p> </p>
+<label for="waste">How many trash cans do you fill each week?</label>
+<select id="waste">
+    <option value="default">Choose your answer</option>
+    <option value="most">4</option>
+    <option value="more">3</option>
+    <option value="less">2</option>
+    <option value="least">1</option>
+    <option value="none">half or less</option>
+</select>
+<p> </p>
+<label for="recycle">Do you recycle?</label>
+<select id="recycle">
+    <option value="default">Choose your answer</option>
+    <option value="yes">yes</option>
+    <option value="no">no</option>
+</select>
+<p> </p>
+<label for="car">How many miles do you travel per year in your personal vehicle?</label>
+<select id="car">
+    <option value="default">Choose your answer</option>
+    <option value="most">more than 15,000</option>
+    <option value="more">10,000 to 15,000</option>
+    <option value="less">1,000 to 10,000</option>
+    <option value="least">less than 1,000</option>
+    <option value="none">I don't have one</option>
+</select>
+<p> </p>
+<label for="public">How many miles do you travel per year in public transportation?</label>
+<select id="public">
+    <option value="default">Choose your answer</option>
+    <option value="most">more than 20,000</option>
+    <option value="more">15,000 to 20,000</option>
+    <option value="less">10,000 to 15,000</option>
+    <option value="least">1,000 to 10,000</option>
+    <option value="little">less than 1,000</option>
+    <option value="none">I don't use it</option>
+</select>
+<p> </p>
+
+<button type="button" onclick="calculateCarbon()">Calculate your carbon footprint!</button>
+
+<p id="demo"></p>
+
+<h3>Reducing your Carbon Footprint</h3>
+
+<p>There are steps you can take to reduce your carbon footprint! Here are some ways you can do that.</p>
+
+<ul>
+<li>Drive less - carpool, bike, walk instead</li>
+<li>Use less hot water - this saves the energy used to heat the water</li>
+<li>Change to fluorescent light bulbs</li>
+<li>Recycle more</li>
+<li>Plant a tree</li>
+</ul>
+
+<script>
+
+function calculateCarbon() {
+    var points = 0;
+    var selectTag = document.getElementById('people');
+    var people = selectTag.options[selectTag.selectedIndex].value
+    if (people == "0") {
+        points += 14;
+    } else if (people == "1") {
+        points += 12;
+    } else if (people == "2") {
+        points += 10;
+    } else if (people == "3") {
+        points += 8;
+    } else if (people == "4") {
+        points += 6;
+    } else if (people == "5") {
+        points += 4;
+    } else if (people =="6") {
+        points += 2;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('home');
+    var home = selectTag.options[selectTag.selectedIndex].value
+    if (home == "large") {
+        points += 10;
+    } else if (home == "medium") {
+        points += 7;
+    } else if (home == "small") {
+        points += 4;
+    } else if (home == "apartment") {
+        points += 2;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('meat');
+    var meat = selectTag.options[selectTag.selectedIndex].value
+    if (meat == "daily") {
+        points += 16;
+    } else if (meat == "few") {
+        points += 14;
+    } else if (meat == "veggie") {
+        points += 10;
+    } else if (meat == "vegan") {
+        points += 10;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('water');
+    var water = selectTag.options[selectTag.selectedIndex].value
+    if (water == "most") {
+        points += 6;
+    } else if (water == "more") {
+        points += 4;
+    } else if (water == "less") {
+        points += 2;
+    } else if (water == "none") {
+        points += 0;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('purchase');
+    var purchase = selectTag.options[selectTag.selectedIndex].value
+    if (purchase == "most") {
+        points += 10;
+    } else if (purchase == "more") {
+        points += 8;
+    } else if (purchase == "less") {
+        points += 6;
+    } else if (purchase == "least") {
+        points += 4;
+    } else if (purchase == "none") {
+        points += 2;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('waste');
+    var waste = selectTag.options[selectTag.selectedIndex].value
+    if (waste == "most") {
+        points += 50;
+    } else if (waste == "more") {
+        points += 40;
+    } else if (waste == "less") {
+        points += 30;
+    } else if (waste == "least") {
+        points += 20;
+    } else if (waste == "none") {
+        points += 5;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('recycle');
+    var recycle = selectTag.options[selectTag.selectedIndex].value
+    if (recycle == "yes") {
+        points += 24;
+    } else if (recycle == "default") {
+        points -=300
+    }
+    var selectTag = document.getElementById('car');
+    var car = selectTag.options[selectTag.selectedIndex].value
+    if (car == "most") {
+        points += 12;
+    } else if (car == "more") {
+        points += 10;
+    } else if (car == "less") {
+        points += 6;
+    } else if (car == "least") {
+        points += 4;
+    } else {
+        points -=300
+    }
+    var selectTag = document.getElementById('public');
+    var public = selectTag.options[selectTag.selectedIndex].value
+    if (public == "most") {
+        points += 12;
+    } else if (public == "more") {
+        points += 10;
+    } else if (public == "less") {
+        points += 6;
+    } else if (public == "least") {
+        points += 4;
+    } else if (public == "little") {
+        points += 2;
+    } else {
+        points -=300
+    }
+    
+    if (points < 0) {
+        var cf = "Please choose all answers to calculate your carbon footprint"
+    } else if (points < 60) {
+        var cf = "Your carbon footprint is low, but you can always reduce it. Read the following for some ways to do this!"
+    } else if (points > 60) {
+        var cf = "Your carbon footprint is quite high. Read the following for some ways to reduce it!"
+    }
+    document.getElementById("demo").innerHTML = cf;
+}
+
+</script>
+
+</body>
 </html>
+
