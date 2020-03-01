@@ -1,18 +1,103 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+		<link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+		<style>
+      body {
+        font-family: 'Bitter';
+        background-color:rgba(228, 248, 228, 0.836);
+       }
+      h1 {
+        color: rgb(75, 121, 122); 
+        font-size:50px
+      }
+      p {
+        font-size:30px;
+        color: black
+      }
+      h2 {
+        color:rgb(75, 121, 122);
+        font-size:40px
+      }
+      #demo {
+        font-family: 'Bitter';
+        color: #2E4053;
+        text-align: center;
+        font-size: 30px;
+      } 
+      ul {
+        font-family: 'Bitter';
+        font-size: 25px;
+        color: #2E4053;
+      }
+      label {
+        font-family: 'Bitter';
+        color: black;
+        font-size: 20px;
+      }
+			h1 {
+				color: rgb(2, 65, 2);
+				font-family: 'Bitter';
+				font-size: 50px;
+			}
+			#intro {
+				font-family: 'Bitter';
+				color: #2E4053;
+				text-align: center;
+				font-size: 24px;
+			}
+			h2 {
+				color:teal;
+				font-family: 'Bitter';
+				font-size: 40px
+			}
+			#carbon-footprint {
+				text-align: center;
+				color: #2E4053;
+				font-size: 25px;
+        font-family: 'bitter'
+			}
+			h3 {
+				color:teal;
+				font-family: 'Bitter';
+				font-size: 38px;
+			}
+			"reduce" {
+				font-family: 'Bitter'
+			}
+			#end {
+				font-family: 'Bitter';
+				color: #2E4053;
+				text-align: center;
+				font-size: 28px;
+			}
+			#drive {
+				font-family: 'Bitter';
+				color: #2E4053;
+				text-align: center;
+				font-size: 20px;
+			}
+		</style>
+</head>
+
 <body>
 
-<h2>Global Warming</h2>
+	<h1>
+		<center><strong>Global Warming</strong></center></h1>
 
-<p>With all the talk about global warming in the news, this issue may seem like something to big to be tackled. However, every little action can make a difference to solve this problem. Read below to see how you can help!</p>
+<p id="intro">With all the talk about global warming in the news, this issue may seem like something to big too be tackled. However, every little action can make a difference to solve this problem. Read below to see how you can help!</p>
 
-<h3>Carbon Footprint Calculator</h3>
+<h2><center><i>Carbon Footprint Calculator</center></i></h2>
 
-<p>Your carbon footprint is the total amount of greenhouse gases that you generate by your actions. Answer the questions below to see your effect on this issue.</p>
+<p id="carbon-footprint">Your carbon footprint is the total amount of greenhouse gases that you generate by your actions. Answer the questions below to see your effect on this issue.</p>
+
+
+
 
 <label for="people">How many people do you live with?</label>
 <select id="people">
-    <option value="default">Choose your answer</option>
+    <option value="default" id="value">Choose your answer</option>
     <option value="0">I live alone</option>
     <option value="1">1 person</option>
     <option value="2">2 people</option>
@@ -49,7 +134,7 @@
     <option value="none">I don't have a dishwasher and/or washing machine</option>
 </select>
 <p> </p>
-<label for="purchase">How many new pieces of furniture, electronics, or other household gadgets do you buy per year?</label>
+<label for="purchase">How many new pieces of furniture, electronics, or other household gadgets do you buy each year?</label>
 <select id="purchase">
     <option value="default">Choose your answer</option>
     <option value="most">more than 7</option>
@@ -100,11 +185,11 @@
 
 <button type="button" onclick="calculateCarbon()">Calculate your carbon footprint!</button>
 
-<p id="demo"></p>
+<p id="demo" style = "font-family: "Bitter";"></p>
 
-<h3>Reducing your Carbon Footprint</h3>
+<h3><center><strong>Reducing your Carbon Footprint</strong></center></h3>
 
-<p>There are steps you can take to reduce your carbon footprint! Here are some ways you can do that.</p>
+<p id="end">There are steps you can take to reduce your carbon footprint! Here are some ways you can do that.</p>
 
 <ul>
 <li>Drive less - carpool, bike, walk instead</li>
@@ -115,6 +200,7 @@
 </ul>
 
 <script>
+
 
 function calculateCarbon() {
     var points = 0;
@@ -223,7 +309,7 @@ function calculateCarbon() {
         points += 6;
     } else if (car == "least") {
         points += 4;
-    } else if (car == "default") {
+    } else if (car =="default") {
         points -=300
     }
     var selectTag = document.getElementById('public');
@@ -238,18 +324,18 @@ function calculateCarbon() {
         points += 4;
     } else if (public == "little") {
         points += 2;
-    } else if (public == "default") {
+    } else if (public == "default"){
         points -=300
     }
     
     if (points < 0) {
         var cf = "Please choose all answers to calculate your carbon footprint"
     } else if (points < 60) {
-        var cf = "Your carbon footprint is low, but you can always reduce it. Read the following for some ways to do this!"
+        var cf = "Your carbon footprint is low, but you can always reduce it. Read the following for some ways to do this!" 
     } else if (points > 60) {
         var cf = "Your carbon footprint is quite high. Read the following for some ways to reduce it!"
-    }
-    document.getElementById("demo").innerHTML = cf;
+
+    } document.getElementById("demo").innerHTML = cf;
 }
 
 </script>
